@@ -13,32 +13,51 @@ let sugar = 0   // Sugar Sprinkle
 document.getElementById('credit').textContent = `Created by ${yourName}`
 
 // Event listener for clicks on the "+" button for Gingerbread cookies
+let updatedTotalQuantity = document.querySelector('#qty-total')
+
+let updatedGbQuantity = document.querySelector('#qty-gb')
 document.getElementById('add-gb').addEventListener('click', function() {
     gb++
-    document.body.summary.append('qty-gb', gb)
-    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    updatedGbQuantity.innerHTML = gb
+    updatedTotalQuantity.innerHTML = gb+cc+sugar
 })
 
 
 document.getElementById('minus-gb').addEventListener('click', function(){
-    gb--
-
+    if (gb > 0){
+        gb--
+        updatedGbQuantity.innerHTML = gb
+        updatedTotalQuantity.innerHTML = gb+cc+sugar
+    }
 })
 
-document.getElementById('add-cc').addEventListener('Click', function(){
+let updatedCcQuantity = document.querySelector('#qty-cc')
+document.getElementById('add-cc').addEventListener('click', function(){
     cc++
-
+    updatedCcQuantity.innerHTML = cc
+    updatedTotalQuantity.innerHTML = gb+cc+sugar
 })
 
 document.getElementById('minus-cc').addEventListener('click', function(){
+   if (cc > 0){
     cc--
+    updatedCcQuantity.innerHTML = cc
+    updatedTotalQuantity.innerHTML = gb+cc+sugar
+   } 
 })
 
-document.getElementById('add-sugar').addEventListener('Click', function(){
+let updatedSugarQuantity = document.querySelector('#qty-sugar')
+document.getElementById('add-sugar').addEventListener('click', function(){
     sugar++
-
+    updatedSugarQuantity.innerHTML = sugar
+    updatedTotalQuantity.innerHTML = sugar+gb+cc
 })
 
 document.getElementById('minus-sugar').addEventListener('click', function(){
+    if (sugar > 0){
     sugar--
+        updatedSugarQuantity.innerHTML = sugar
+        updatedTotalQuantity.innerHTML = sugar+gb+cc
+    }
 })
+
